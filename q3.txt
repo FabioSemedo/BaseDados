@@ -1,0 +1,5 @@
+--P3 – Quantas freguesias têm “Vilar” no nome?
+
+SELECT COUNT(*)
+FROM freguesias
+WHERE NOME LIKE '%Vilar%';

@@ -1,0 +1,10 @@
+--P6 – Quantos mandatos teve cada partido no distrito de P5, por ordem decrescente dos mandatos.
+-- ~ P5 » Dsitrito: Braga » Concelho: Vila Nova... » Freguesia: Cruz 
+SELECT  p.designacao as Nome, l.mandatos as Mandatos
+FROM freguesias f, concelhos c, distritos d, listas l, partidos p
+WHERE f.nome = 'Cruz'
+    and c.codigo = f.concelho
+    and d.codigo = c.distrito
+Group by p.sigla
+ORDER By Mandatos DESC
+;

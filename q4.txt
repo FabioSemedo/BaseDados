@@ -1,0 +1,9 @@
+--P4 – Quais as freguesias do concelho de Espinho?
+
+/*SELECT c.NOME AS Concelho, f.NOME AS Freguesia
+FROM concelhos c LEFT JOIN freguesias f ON c.codigo = f.concelho
+;*/
+
+SELECT f.NOME AS 'Freguesia de Espinho'
+FROM concelhos c LEFT JOIN freguesias f ON c.codigo = f.concelho
+WHERE c.nome LIKE '%EspinhO%'

@@ -1,0 +1,7 @@
+--P2 – Quais os resultados obtidos por cada partido na freguesia da P1?
+
+SELECT
+    p.Designacao ,SUM(v.VOTOS) AS 'Votos Do Partido'
+FROM 
+    votacoes v LEFT JOIN partidos p ON v.partido = p.sigla
+GROUP BY v.partido;     

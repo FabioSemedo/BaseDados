@@ -1,0 +1,10 @@
+--P1 – Qual o código da freguesia onde nasceu (ou onde reside, caso tenha nascido fora de Portugal)?
+
+SELECT 
+    f.NOME
+FROM 
+    freguesias f LEFT JOIN concelhos c ON f.CONCELHO = c.CODIGO
+WHERE 
+    f.NOME LIKE '%Cruz%'
+    AND c.NOME LIKE '%Vila Nova%';
+    

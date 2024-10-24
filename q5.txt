@@ -1,0 +1,12 @@
+--P5 – Qual o código e o nome do distrito da freguesia de P1?
+
+SELECT d.codigo AS Codigo, d.nome AS 'Distrito da Freg. Cruz'
+FROM
+    freguesias f
+    ,concelhos c
+    ,distritos d 
+WHERE 
+    f.nome LIKE 'Cruz' 
+    AND f.concelho = c.codigo
+    AND c.distrito = d.codigo
+;
