@@ -1,0 +1,9 @@
+--P13 – Quais os totais de votos a nível nacional dos 5 maiores partidos?
+
+select p.designacao, sum(v.votos) as sum_votos
+from partidos p
+    join votacoes v on v.partido = p.sigla
+group by
+    p.sigla 
+order by sum_votos desc
+limit 5

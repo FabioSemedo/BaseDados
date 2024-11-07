@@ -1,0 +1,13 @@
+--P9 – Quais os partidos que não concorreram no distrito de Lisboa.
+with partidosLisboa as (
+    select l.partido
+    from listas l
+    join distritos d on l.distrito = d.codigo
+    where d.nome like "Lisboa"
+    )
+    
+select p.designacao, *
+from partidos p
+where p.sigla not in partidosLisboa
+;
+

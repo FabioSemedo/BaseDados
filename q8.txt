@@ -1,0 +1,14 @@
+/* 
+P8 – Quais as freguesias da região ‘M´ que, para o partido PSN, deram um
+número zero de votos? Liste código e nome da freguesia.
+*/
+
+SELECT f.codigo, f.nome
+FROM freguesias f
+    join concelhos c on f.concelho = c.codigo
+    join votacoes v on f.codigo = v.freguesia
+    join partidos p on p.sigla = v.partido
+    join distritos d on d.codigo = c.distrito
+WHERE p.sigla = "PSN"
+    And d.regiao = "M"
+    And v.votos = 0;                    

@@ -1,0 +1,8 @@
+--P12 – Quantos votos teve cada partido globalmente?
+
+select p.designacao, sum(v.votos) as votos
+from partidos p
+    join votacoes v on v.partido = p.sigla
+group by
+    p.sigla 
+order by votos desc;

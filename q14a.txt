@@ -1,0 +1,13 @@
+/*
+P14 – Qual o concelho com mais freguesias do país? E qual o distrito com
+mais concelhos?
+*/
+
+with x as (select c.nome as concelho, count(*) as num_freg
+from concelhos c join freguesias f on f.concelho = c.codigo
+group by c.codigo
+)
+
+select *
+from x
+where x.num_freg = (select max(num_freg) from x)

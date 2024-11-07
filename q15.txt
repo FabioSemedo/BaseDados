@@ -1,0 +1,10 @@
+--P15 – Qual o número médio de freguesias por concelho?
+with x as(
+select c.codigo, c.nome, count(*) as num_freg
+from concelhos c join freguesias f on f.concelho=c.codigo
+group by c.codigo
+)
+
+
+select round(avg(num_freg))
+from x c
